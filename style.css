@@ -1,0 +1,196 @@
+    /* === Global Reset === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1e1f29, #32334a);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #7f5af0, #2cb67d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* === Form Container === */
+    form {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 25px 20px;
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+      transition: background 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    textarea {
+      resize: none;
+      min-height: 80px;
+    }
+#logout {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: linear-gradient(90deg, #7a5cf4, #3edcb3);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#logout:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+    button {
+      background: linear-gradient(135deg, #7f5af0, #2cb67d);
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 12px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(127, 90, 240, 0.4);
+    }
+
+    /* === Todo Container === */
+    .allTodos {
+      width: 100%;
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .todo {
+      position: relative;
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .todo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .todo h1 {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .todo h2 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #dcdcdc;
+      margin-bottom: 15px;
+    }
+
+    /* === Todo Buttons === */
+    .todo-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .todo button {
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .edit-btn {
+      background: #f0ad4e;
+      color: #222;
+    }
+
+    .edit-btn:hover {
+      background: #e39b36;
+    }
+
+    .delete-btn {
+      background: #ef4565;
+      color: #fff;
+    }
+
+    .delete-btn:hover {
+      background: #d6334b;
+    }
+
+    /* === Empty State === */
+    .empty-message {
+      text-align: center;
+      color: #aaa;
+      font-style: italic;
+      margin-top: 50px;
+      font-size: 1.1rem;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+      form {
+        padding: 20px 15px;
+      }
+      button {
+        font-size: 15px;
+      }
+    }
