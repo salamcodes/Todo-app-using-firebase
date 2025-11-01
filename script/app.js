@@ -13,9 +13,9 @@ let allTodo = [];
 
 logOut.addEventListener("click", () => {
     signOut(auth).then(() => {
-        window.location = "index.html"
+        window.location = "index.html";
     }).catch((error) => {
-        alert(error)
+        alert(error);
     });
 })
 onAuthStateChanged(auth, (user) => {
@@ -23,29 +23,29 @@ onAuthStateChanged(auth, (user) => {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
         const uid = user.uid;
-        console.log("User ID ==>", uid)
-        getData(uid)
+        console.log("User ID ==>", uid);
+        getData(uid);
     } else {
-        window.location = "login.html"
-    }
+        window.location = "login.html";
+    };
 });
 
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const user = auth.currentUser;
-    console.log(title.value, desc.value)
+    console.log(title.value, desc.value);
     const userData = {
         title: title.value,
         description: desc.value,
         uid: user.uid,
         time: Timestamp.fromDate(new Date())
-    }
+    };
 
     try {
         const docRef = await addDoc(collection(db, "todos"), userData);
         console.log("Document written with ID: ", docRef.id);
-        allTodo.push({ ...userData, docId: docRef.id })
-        renderTodo(allTodo)
+        allTodo.push({ ...userData, docId: docRef.id });
+        renderTodo(allTodo);
     } catch (e) {
         console.error("Error adding document: ", e);
     }
@@ -54,13 +54,13 @@ form.addEventListener("submit", async (event) => {
 });
 
 async function getData(uid) {
-    const q = query(collection(db, "todos"), where("uid", "==", uid))
+    const q = query(collection(db, "todos"), where("uid", "==", uid));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         // console.log(`${doc.id} => ${doc.data()}`);
-        allTodo.unshift({ ...doc.data(), docId: doc.id })
+        allTodo.unshift({ ...doc.data(), docId: doc.id });
     });
-    renderTodo(allTodo)
+    renderTodo(allTodo);
 }
 
 // getData();
@@ -76,7 +76,7 @@ function renderTodo(arr) {
                 <button  class="delete-btn" data-id=${item.docId}>Delete</button>
             </div>
         </div>`
-    })
+    });
 
 };
 
@@ -84,12 +84,12 @@ todoContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-btn")) {
         const docId = e.target.dataset.id;
         deleteTodo(docId);
-    }
+    };
 
     if (e.target.classList.contains("edit-btn")) {
         const docId = e.target.dataset.id;
         editTodo(docId);
-    }
+    };
 });
 async function deleteTodo(docId) {
     try {
@@ -107,8 +107,8 @@ async function deleteTodo(docId) {
 
     } catch (error) {
         console.error("Error deleting document:", error);
-    }
-}
+    };
+};
 
 async function editTodo(docId) {
     // Find todo
@@ -131,7 +131,7 @@ async function editTodo(docId) {
             description: newDesc,
         });
 
-        console.log("Document updated:", docId)
+        console.log("Document updated:", docId);
         // Update allTodo array
         todo.title = newTitle;
         todo.description = newDesc;
@@ -141,5 +141,5 @@ async function editTodo(docId) {
         alert("Todo updated successfully!");
     } catch (error) {
         console.error("Error updating document:", error);
-    }
-}
+    };
+};
