@@ -1,4 +1,4 @@
-import { collection, addDoc, where, getDocs, Timestamp, query, orderBy, doc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+import { collection, addDoc, where, getDocs, Timestamp, query, doc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js"
 import { db, auth } from "./firebaseconfig.js";
@@ -111,7 +111,7 @@ async function deleteTodo(docId) {
 };
 
 async function editTodo(docId) {
-    // Find todo
+    
     const todo = allTodo.find((t) => t.docId === docId);
 
 
