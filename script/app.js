@@ -91,6 +91,7 @@ todoContainer.addEventListener("click", (e) => {
         editTodo(docId);
     };
 });
+
 async function deleteTodo(docId) {
     try {
 
