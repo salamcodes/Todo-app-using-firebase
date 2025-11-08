@@ -64,25 +64,26 @@
       resize: none;
       min-height: 80px;
     }
-#logout {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background: linear-gradient(90deg, #7a5cf4, #3edcb3);
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
 
-#logout:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
-}
+    #logout {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: linear-gradient(90deg, #7a5cf4, #3edcb3);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    #logout:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
 
     button {
       background: linear-gradient(135deg, #7f5af0, #2cb67d);
@@ -187,9 +188,11 @@
       h1 {
         font-size: 2rem;
       }
+
       form {
         padding: 20px 15px;
       }
+
       button {
         font-size: 15px;
       }
